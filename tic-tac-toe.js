@@ -1,9 +1,11 @@
-window.addEventListener("DOMContenLoaded", () => {
+window.addEventListener("DOMContentLoaded", (element) => {
     let currentPlayerSymbol = "X";
     let squareValues = ["","","","","","","","",""];
-    document
-        .getElementById("tic-tac-toe-board")
-        .addEventListener("click", e => {
-            console.log("A square is clicked:", e.target.id);
-        })
+
+    const board = document.getElementById("tic-tac-toe-board")
+    board.addEventListener("click", e => {
+        console.log("A square is clicked:", e.target.id);
+
+    })
+
 });
