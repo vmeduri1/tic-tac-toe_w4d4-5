@@ -4,6 +4,6 @@ window.addEventListener("DOMContenLoaded", () => {
     document
         .getElementById("tic-tac-toe-board")
         .addEventListener("click", e => {
-            console.log("A square is clicked:", e.target.id);
+        console.log("A square is clicked:", e.target.id);
         })
 });
