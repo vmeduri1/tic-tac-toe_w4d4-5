@@ -65,8 +65,16 @@ if(gameStatus === 'x' || 'o' || 'Tie') {
             document
                 .getElementById('game-status')
                 .innerHTML = '';
-            const imgs = document.querySelectorAll('square-')
-            console.log(imgs)
+            for (let i = 0; i < 9; i++) {
+                document
+                    .getElementById(`square-${i}`)
+                    .innerHTML = '';
+            }
+            currentPlayerSymbol = 'x';
+            document
+                .getElementById("new-game")
+                .disable = true
+            squareValues = ['','','','','','','','','']
 
         })
 }
@@ -80,7 +88,7 @@ window.addEventListener("DOMContentLoaded", (element) => {
         .getElementById("tic-tac-toe-board")
         .addEventListener("click", e => {
             const targetId = e.target.id;
-
+            // console.log(targetId, targetId);
             if (!targetId.startsWith('square-')) return;
 
             const squareIndex = Number.parseInt(targetId[targetId.length - 1]);
