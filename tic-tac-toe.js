@@ -24,6 +24,16 @@ function loadGame() {
     currentPlayerSymbol = JSON.parse(localStorage.getItem('currentPlayerSymbol'))
     squareValues = JSON.parse(localStorage.getItem('squareValues'))
     gameStatus = JSON.parse(localStorage.getItem('gameStatus'))
+    for(let i = 0; i < 9; i++) {
+        if(squareValues[i] !== '') {
+            const img = document.createElement('img');
+            img.setAttribute('class', 'img')
+            img.src = `https://assets.aaonline.io/Module-DOM-API/formative-project-tic-tac-toe/player-${squareValues[i]}.svg`
+            document
+                .getElementById(`square-${i}`)
+                .appendChild(img)
+        }
+    }
 }
 // console.log(JSON.stringify(squareValues))
 
