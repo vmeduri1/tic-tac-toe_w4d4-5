@@ -1,8 +1,35 @@
+
 let currentPlayerSymbol = "x";
 let squareValues = ["","","","","","","","",""];
 let gameStatus = '';
 
+// window.addEventListener('DOMContentLoaded', event => {
+//     currentPlayerSymbol = JSON.parse(localStorage.getItem('currentPlayerSymbol'))
+//     squareValues = JSON.parse(localStorage.getItem('squareValues'))
+//     gameStatus = JSON.parse(localStorage.getItem('gameStatus'))
+
+
+// // })
+
+function saveGame() {
+    localStorage.setItem('currentPlayerSymbol', (JSON.stringify(currentPlayerSymbol)))
+    localStorage.setItem('squareValues', (JSON.stringify(squareValues)))
+    localStorage.setItem('gameStatus', (JSON.stringify(gameStatus)))
+//     localStorage.getItem('currentPlayerSymbol')
+//     localStorage.getItem('squareValues')
+//     localStorage.getItem('gameStatus')
+}
+
+function loadGame() {
+    currentPlayerSymbol = JSON.parse(localStorage.getItem('currentPlayerSymbol'))
+    squareValues = JSON.parse(localStorage.getItem('squareValues'))
+    gameStatus = JSON.parse(localStorage.getItem('gameStatus'))
+}
+// console.log(JSON.stringify(squareValues))
+
 function checkGameStatus(){
+    saveGame();
+    // console.log(JSON.stringify(index.HTML))
     //check rows
     for(let i = 0; i < 9; i += 3) {
         if(squareValues[i] !== ''
@@ -82,11 +109,27 @@ if(gameStatus === 'x' || 'o' || 'Tie') {
         })
 }
 
-
+document
+    .getElementById('give-up')
+    .addEventListener('click', event => {
+        if(currentPlayerSymbol === 'x') {
+            document
+            .getElementById('game-status')
+            .innerHTML = `Winner: O`
+        } else {
+            document
+            .getElementById('game-status')
+            .innerHTML = `Winner: X`
+        }
+        document
+            .getElementById('give-up')
+            .disable = true
+    })
 
 
 
 window.addEventListener("DOMContentLoaded", (element) => {
+    loadGame();
     document
         .getElementById("tic-tac-toe-board")
         .addEventListener("click", e => {
