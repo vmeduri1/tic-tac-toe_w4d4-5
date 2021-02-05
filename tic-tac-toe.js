@@ -47,9 +47,12 @@ function checkGameStatus(){
 
     if(boardIsFilled === true && gameStatus === '') {
         gameStatus = 'Tie'
+        document
+            .getElementById('game-status')
+            .innerHTML = `${gameStatus.toUpperCase()}`
     }
 
-    if(gameStatus !== '') {
+    if(gameStatus !== '' && gameStatus !== 'Tie') {
         document
             .getElementById('game-status')
             .innerHTML = `Winner: ${gameStatus.toUpperCase()}`;
