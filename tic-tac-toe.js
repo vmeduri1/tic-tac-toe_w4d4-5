@@ -24,6 +24,10 @@ function loadGame() {
     currentPlayerSymbol = JSON.parse(localStorage.getItem('currentPlayerSymbol'))
     squareValues = JSON.parse(localStorage.getItem('squareValues'))
     gameStatus = JSON.parse(localStorage.getItem('gameStatus'))
+    if (!gameStatus) {
+        console.log(gameStatus);
+        return;
+    }
     for(let i = 0; i < 9; i++) {
         console.log(squareValues);
         if(squareValues[i] != '') {
@@ -35,6 +39,7 @@ function loadGame() {
                 .appendChild(img)
         }
     }
+
 }
 // console.log(JSON.stringify(squareValues))
 
