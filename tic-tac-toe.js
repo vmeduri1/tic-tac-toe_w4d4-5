@@ -21,13 +21,14 @@ function saveGame() {
 }
 
 function loadGame() {
-    currentPlayerSymbol = JSON.parse(localStorage.getItem('currentPlayerSymbol'))
-    squareValues = JSON.parse(localStorage.getItem('squareValues'))
-    gameStatus = JSON.parse(localStorage.getItem('gameStatus'))
-    if (!gameStatus) {
+    if (localStorage['gameStatus'] === undefined) {
         console.log(gameStatus);
         return;
     }
+    currentPlayerSymbol = JSON.parse(localStorage.getItem('currentPlayerSymbol'))
+    squareValues = JSON.parse(localStorage.getItem('squareValues'))
+    gameStatus = JSON.parse(localStorage.getItem('gameStatus'))
+
     for(let i = 0; i < 9; i++) {
         console.log(squareValues);
         if(squareValues[i] != '') {
